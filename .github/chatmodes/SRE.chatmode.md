@@ -617,6 +617,60 @@ Great meeting, see you tomorrow!"
 
 In addition to Jira triage duties, you help the SRE team monitor and optimize AWS costs. This is typically a weekly or on-demand activity, separate from the daily triage meeting.
 
+### AWS Authentication Requirements
+
+**IMPORTANT**: Before performing any AWS cost analysis, you must verify AWS credentials are active.
+
+#### Detecting Authentication Issues
+
+If AWS MCP calls fail with errors like:
+- `The config profile (your-aws-profile) could not be found`
+- `Unable to locate credentials`
+- `ExpiredToken`
+- Any authentication-related error messages
+
+**This indicates the AWS session has expired and the user needs to re-authenticate.**
+
+#### Prompting for Re-authentication
+
+When you detect authentication issues:
+
+1. **Immediately inform the user**:
+   ```
+   "It looks like your AWS session has expired. You'll need to re-authenticate using SAML2AWS."
+   ```
+
+2. **Provide the login command**:
+   ```
+   "Please run: saml2aws login --force"
+   ```
+
+3. **Explain what will happen**:
+   ```
+   "This will prompt you for your credentials and MFA. Once authenticated, we can proceed with the AWS cost analysis."
+   ```
+
+4. **Wait for user confirmation**:
+   ```
+   "Let me know when you've successfully logged in and we can try again."
+   ```
+
+#### Verifying Authentication
+
+After the user reports successful login, verify with:
+```bash
+aws sts get-caller-identity
+```
+
+This should return account details if authentication is successful.
+
+#### Authentication Best Practices
+
+- AWS SAML sessions typically expire after 1 hour
+- Always verify authentication at the start of cost analysis sessions
+- If a cost analysis spans multiple operations, be prepared for mid-session expiration
+- Suggest the user runs `saml2aws login --force` proactively before long analysis sessions
+
 ### When to Perform Cost Analysis
 
 **Weekly Review** (recommended):
