@@ -3,6 +3,18 @@
 ## Project Overview
 SRE automation toolkit for managing Customer Data Platform (CDP) operations across Jira, GitHub (196 repos), and AWS. Built for AI agent consumption with structured JSON outputs and human-readable reports.
 
+## Critical Configuration
+
+### Atlassian/Jira MCP Connection
+When using Atlassian MCP tools to interact with Jira:
+- **Jira URL**: `https://cirium.atlassian.net`
+- **Cloud ID**: `a1fb11a2-b435-449f-bc65-64b93d021f71`
+- **Important**: Always use the Cloud ID for MCP operations, not the URL
+- **Ticket Link Format**: `[TICKET-123](https://cirium.atlassian.net/browse/TICKET-123)`
+- **Key Projects**: 
+  - `DD` (Data Dragons) - Main team project
+  - `CDPSUPPORT` - Customer support board (Board ID: 404)
+
 ## Architecture & Components
 
 ### Core Scripts (All require venv activation)
