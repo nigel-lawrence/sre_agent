@@ -37,6 +37,7 @@ env/
 .DS_Store
 
 # Reports and output
+docs/reports/
 triage_report.md
 *.log
 
