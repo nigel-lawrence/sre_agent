@@ -867,9 +867,26 @@ Create Jira tickets for cost optimization work:
 - Investigation of cost anomalies
 - Implementation of RI/Savings Plans
 
+**IMPORTANT: Before Creating Tickets**:
+- **Always prompt the user** to confirm which Jira project to use
+- Common projects: CDPSUPPORT, DD (Data Dragons), or others
+- Use `mcp_atlassian_getVisibleJiraProjects` to list available projects
+- Ask: "Which Jira project should I create this ticket in? (e.g., CDPSUPPORT, DD, or other?)"
+- Wait for user confirmation before proceeding
+
+**IMPORTANT: Jira Project Required Fields**:
+- The DD (Data Dragons) and CDPSUPPORT projects require an **Account field** (customfield_11850)
+- Before creating tickets, ask: "Should I use 'CDP Mx & Sppt' (CDP Maintenance & Support) for the Account field, or would another account be more appropriate?"
+- Available account options include:
+  - **CDP Mx & Sppt** (ID: 495) - For maintenance and support work
+  - **CDP Feature Development** (ID: 496) - For feature development
+  - **CDP Skills & Education** (ID: 511) - For training/education
+  - **AO - Overhead** (ID: 105) - For overhead work
+- Also helpful to set Team Assignment to "Data Dragons" (customfield_11873, ID: 11779) when appropriate
+
 **Ticket structure**:
 ```
-Project: CDPSUPPORT (or dedicated Cost Optimization project)
+Project: [User-specified project - prompt before creating!]
 Type: Task
 Summary: "AWS Cost Optimization: [Specific action]"
 Description:
