@@ -1,0 +1,15 @@
+# Jira Board Watcher Configuration
+
+# Project Configuration
+project:
+  # The Jira project key (e.g., CDPSUPPORT)
+  key: "CDPSUPPORT"
+  # The Jira board ID (found in the board URL)
+  board_id: "404"
+
+# Team Configuration
+team:
+  # Team name for display purposes
+  # Team members are automatically determined from users with 'Member' or 'Administrator' 
+  # roles in the project (direct assignments only, excluding group-based assignments)
+  name: "Data Dragons"

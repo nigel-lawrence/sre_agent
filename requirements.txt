@@ -1,0 +1,15 @@
+# Requirements for SRE Board Watcher
+# Python 3.8+
+
+# Core dependencies
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# If you want to add YAML parsing (currently script has placeholders for config loading)
+PyYAML>=6.0
+
+# If you want to add date/time parsing enhancements
+python-dateutil>=2.8.0
+
+# For future enhancements - rich terminal output
+rich>=13.0.0
