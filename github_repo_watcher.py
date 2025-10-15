@@ -362,7 +362,10 @@ class GitHubRepoMonitor:
         severity_counts = defaultdict(int)
         for result in results:
             for alert in result['dependabot_alerts']:
-                severity_counts[alert['severity']] += 1
+                # Normalize severity to lowercase for consistent counting
+                severity = alert.get('severity', '').lower()
+                if severity:
+                    severity_counts[severity] += 1
         
         if severity_counts:
             lines.append("🚨 VULNERABILITY SEVERITY BREAKDOWN")
